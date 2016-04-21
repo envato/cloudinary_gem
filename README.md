@@ -9,39 +9,11 @@ Cloudinary offers comprehensive APIs and administration capabilities and is easy
 
 Cloudinary provides URL and HTTP based APIs that can be easily integrated with any Web development framework. 
 
-For Ruby on Rails, Cloudinary provides a GEM for simplifying the integration even further.
-
-## Getting started guide
-![More](http://res.cloudinary.com/cloudinary/image/upload/see_more_bullet.png)  **Take a look at our [Getting started guide of Ruby on Rails](http://cloudinary.com/documentation/rails_integration#getting_started_guide)**.
-
-## Setup ######################################################################
+## Setup
 
 To install the Cloudinary Ruby GEM, run:
 
     $ gem install cloudinary
-
-If you use Rails 3.x or higher, edit your `Gemfile`, add the following line and run `bundle install`
-
-    gem 'cloudinary'
-
-Or in Rails 2.x, edit your `environment.rb` and add:
-
-    config.gem 'cloudinary'
-
-If you would like to use our optional integration module of image uploads with ActiveRecord using `CarrierWave`, install CarrierWave GEM:
-
-Rails 3.x: edit your `Gemfile` and run `bundle install`:
-
-    gem 'carrierwave'
-    gem 'cloudinary'
-
-Rails 2.x environment.rb:
-
-    config.gem 'carrierwave', :version => '~> 0.4.10'
-    config.gem 'cloudinary'
-
-
-*Note: The CarrierWave GEM should be loaded before the Cloudinary GEM.*
 
 ## Try it right away
 
@@ -87,7 +59,7 @@ Each request to our secure APIs (e.g., image uploads, eager sprite generation) m
 
 Setting the `cloud_name`, `api_key` and `api_secret` parameters can be done either directly in each call to a Cloudinary method or by globally setting using a YAML configuration file.
 
-Cloudinary looks for an optional file named cloudinary.yml, which should be located under the `config` directory of your Rails project. 
+Cloudinary looks for an optional file named cloudinary.yml, which should be located under the `config` directory of your Ruby project. 
 It contains settings for each of your deployment environments. You can always override the values specified in `cloudinary.yml` by passing different values in specific Cloudinary calls.
 
 You can [download your customized cloudinary.yml](https://cloudinary.com/console/cloudinary.yml) configuration file using our Management Console.
@@ -129,10 +101,6 @@ Same goes for Twitter:
 
     twitter_name_profile_image_tag("billclinton.jpg")
 
-![More](http://res.cloudinary.com/cloudinary/image/upload/see_more_bullet.png) **See [our documentation](http://cloudinary.com/documentation/rails_image_manipulation) for more information about displaying and transforming images in Rails**.                                         
-
-
-
 ### Upload
 
 Assuming you have your Cloudinary configuration parameters defined (`cloud_name`, `api_key`, `api_secret`), uploading to Cloudinary is very simple.
@@ -155,35 +123,6 @@ You can also specify your own public ID:
 
     http://res.cloudinary.com/demo/image/upload/sample_remote.jpg
 
-
-![More](http://res.cloudinary.com/cloudinary/image/upload/see_more_bullet.png) **See [our documentation](http://cloudinary.com/documentation/rails_image_upload) for plenty more options of uploading to the cloud from your Ruby code or directly from the browser**.
-
-
-### CarrierWave Integration
-
-**Note:** Starting from version 1.1.0 the CarrierWave database format has changed to include the resource type and storage type. The new functionality
-is backward compatible with the previous format. To use the old format override `use_extended_identifier?` in the Uploader and return `false`.
-
-Cloudinary's Ruby GEM includes an optional plugin for [CarrierWave](https://github.com/jnicklas/carrierwave). If you already use CarrierWave, simply include `Cloudinary::CarrierWave` to switch to cloud storage and image processing in the cloud. 
-
-    class PictureUploader < CarrierWave::Uploader::Base    
-        include Cloudinary::CarrierWave        
-        ...  
-    end
-
-![More](http://res.cloudinary.com/cloudinary/image/upload/see_more_bullet.png) **For more details on CarrierWave integration see [our documentation](http://cloudinary.com/documentation/rails_carrierwave)**.
-
-We also published an interesting blog post about [Ruby on Rails image uploads with CarrierWave and Cloudinary](http://cloudinary.com/blog/ruby_on_rails_image_uploads_with_carrierwave_and_cloudinary).
-
-## Neo4j integration
-
-Starting from version 1.1.1 Cloudinary's Ruby GEM supports the use of carrierwave with Neo4j.
-
-### Samples
-
-You can find our simple and ready-to-use samples projects, along with documentation in the [samples folder](https://github.com/cloudinary/cloudinary_gem/tree/master/samples). 
-Please consult with the [README file](https://github.com/cloudinary/cloudinary_gem/blob/master/samples/README.md), for usage and explanations.
-
 ## Additional resources ##########################################################
 
 Additional resources are available at:
@@ -191,19 +130,15 @@ Additional resources are available at:
 * [Website](http://cloudinary.com)
 * [Documentation](http://cloudinary.com/documentation)
 * [Knowledge Base](http://support.cloudinary.com/forums)
-* [Documentation for Ruby on Rails integration](http://cloudinary.com/documentation/rails_integration)
-* [Ruby on Rails image upload documentation](http://cloudinary.com/documentation/rails_image_upload)
-* [Ruby on Rails image manipulation documentation](http://cloudinary.com/documentation/rails_image_manipulation)
 * [Image transformations documentation](http://cloudinary.com/documentation/image_transformations)
+
+## Acknowledgement
+
+This gem is based on top of cloudinary's cloudinary_gem
 
 ## Support
 
-You can [open an issue through GitHub](https://github.com/cloudinary/cloudinary_gem/issues).
-
-Contact us [http://cloudinary.com/contact](http://cloudinary.com/contact)
-
-Stay tuned for updates, tips and tutorials: [Blog](http://cloudinary.com/blog), [Twitter](https://twitter.com/cloudinary), [Facebook](http://www.facebook.com/Cloudinary).
-
+You can [open an issue through GitHub](https://github.com/envato/lean_cloudinary/issues).
 
 ## License #######################################################################
 

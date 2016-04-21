@@ -88,20 +88,14 @@ module Cloudinary
       "private_cdn" => !uri.path.blank?,
       "secure_distribution" => uri.path[1..-1]
     )
-    uri.query.to_s.split("&").each do
-      |param|
+    uri.query.to_s.split("&").each do |param|
       key, value = param.split("=")
       set_config(key=>URI.decode(value))
     end    
   end
   
   def self.app_root
-    if defined? Rails::root
-      # Rails 2.2 return String for Rails.root
-      Rails.root.is_a?(Pathname) ? Rails.root : Pathname.new(Rails.root)
-    else
-      Pathname.new(".")
-    end
+    Pathname.new(".")
   end
 
   private
@@ -121,10 +115,3 @@ module Cloudinary
     new_config.each{|k,v| @@config.send(:"#{k}=", v) if !v.nil?}
   end
 end
-
-# Prevent require loop if included after Rails is already initialized.
-require "cloudinary/helper" if defined?(::ActionView::Base)
-require "cloudinary/controller" if defined?(::ActionController::Base)
-require "cloudinary/railtie" if defined?(Rails) && defined?(Rails::Railtie)
-require "cloudinary/engine" if defined?(Rails) && defined?(Rails::Engine)
-

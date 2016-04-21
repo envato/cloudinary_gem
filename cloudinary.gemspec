@@ -12,20 +12,17 @@ Gem::Specification.new do |s|
   s.summary     = %q{Client library for easily using the Cloudinary service}
   s.description = %q{Client library for easily using the Cloudinary service}
 
-  s.rubyforge_project = "cloudinary"
-
   s.files         = (`git ls-files`.split("\n") - `git ls-files samples`.split("\n")) + Dir.glob("vendor/assets/javascripts/*/*") + Dir.glob("vendor/assets/html/*")
   s.test_files    = `git ls-files -- {test,spec,features}/*`.split("\n")
-  s.executables   = `git ls-files -- bin/*`.split("\n").map{ |f| File.basename(f) }
+  s.executables   = `git ls-files -- bin/*`.split("\n").map { |f| File.basename(f) }
   s.require_paths = ["lib"]
 
   s.add_dependency "aws_cf_signer"
   s.add_development_dependency "rspec", '>=3.2'
-  s.add_development_dependency "rspec-rails"
   s.add_development_dependency "rubyzip"
 
   s.add_dependency "rest-client"
-  s.add_development_dependency "actionpack"
   s.add_development_dependency "simplecov"
+  s.add_development_dependency "rake"
 
 end
